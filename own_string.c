@@ -2,10 +2,12 @@
 
 char * own_strcat(char * dest, const char * src)
 {
-    while (!*dest)
+    char * ps = dest;
+
+    while (*dest)
         dest++;
 
-    while (!*src) {
+    while (*src) {
         *dest = *src;
         dest++;
         src++;
@@ -13,5 +15,5 @@ char * own_strcat(char * dest, const char * src)
 
     *dest = '\0';
 
-    return dest;
+    return ps;
 }
