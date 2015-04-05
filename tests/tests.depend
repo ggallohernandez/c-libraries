@@ -1,17 +1,18 @@
 # depslib dependency file v1.0
-1428106424 source:/home/guillermo/c-libraries/own_string.c
+1428200800 source:/home/guillermo/c-libraries/own_string.c
 	"own_string.h"
 
-1428100411 /home/guillermo/c-libraries/own_string.h
+1428200617 /home/guillermo/c-libraries/own_string.h
 
-1428106646 source:/home/guillermo/c-libraries/tests/test.c
+1428201385 source:/home/guillermo/c-libraries/tests/test.c
 	"test.h"
 
-1428106602 /home/guillermo/c-libraries/tests/test.h
+1428200931 /home/guillermo/c-libraries/tests/test.h
 
-1428106622 source:/home/guillermo/c-libraries/tests/main.c
+1428201312 source:/home/guillermo/c-libraries/tests/main.c
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
 	"../own_string.h"
 	"test.h"
 

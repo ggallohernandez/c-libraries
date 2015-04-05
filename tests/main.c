@@ -5,7 +5,8 @@
 #include "test.h"
 
 void run_string_tests();
-void test_si_own_string_h_ejecuta_los_casos_de_uso_correctamente();
+void test_si_own_strcat_ejecuta_los_casos_de_uso_correctamente();
+void test_si_own_strncat_ejecuta_los_casos_de_uso_correctamente();
 
 int main()
 {
@@ -20,10 +21,11 @@ void run_string_tests()
 {
     puts(":: Own String Library ::");
 
-    test_si_own_string_h_ejecuta_los_casos_de_uso_correctamente();
+    test_si_own_strcat_ejecuta_los_casos_de_uso_correctamente();
+    test_si_own_strncat_ejecuta_los_casos_de_uso_correctamente();
 }
 
-void test_si_own_string_h_ejecuta_los_casos_de_uso_correctamente()
+void test_si_own_strcat_ejecuta_los_casos_de_uso_correctamente()
 {
     int i;
     char * str;
@@ -41,13 +43,53 @@ void test_si_own_string_h_ejecuta_los_casos_de_uso_correctamente()
     t_test_result result;
     result.total = result.passed = result.failed = 0;
 
-    puts(".. executing test_si_ejecuta_los_casos_de_uso_correctamente\n");
+    puts(".. executing void test_si_own_strcat_ejecuta_los_casos_de_uso_correctamente\n");
 
     for (i = 0; i < sizeof(tests) / sizeof(t_test_case_str); i++) {
         test = tests +i;
         strcpy(src, test->a);
 
         if (assert_str_equals(str = own_strcat(src, test->b), test->expected)) {
+            result.passed++;
+            print_done_str(str, test);
+        } else {
+            result.failed++;
+            print_failed_str(str, test);
+        }
+
+        result.total++;
+    }
+
+    print_result(&result);
+}
+
+void test_si_own_strncat_ejecuta_los_casos_de_uso_correctamente()
+{
+    int i;
+    char * str;
+    char  src[STR_LENGTH];
+    t_test_case_str * test;
+
+    t_test_case_str tests[] = {
+        {.a = "destination",    .b = "source",      .n = 3,     .expected = "destinationsou"    },
+        {.a = "destinat",       .b = "ion",         .n = 5,     .expected = "destination"       },
+        {.a = "dest",           .b = "",            .n = 3,     .expected = "dest"              },
+        {.a = "",               .b = "source",      .n = 3,     .expected = "sou"               },
+        {.a = "",               .b = "source",      .n = 6,     .expected = "source"            },
+        {.a = "",               .b = "",            .n = 10,    .expected = ""                  },
+        {.a = "dest",           .b = "src",         .n = 0,     .expected = "dest"              },
+    };
+
+    t_test_result result;
+    result.total = result.passed = result.failed = 0;
+
+    puts(".. executing test_si_own_strncat_ejecuta_los_casos_de_uso_correctamente\n");
+
+    for (i = 0; i < sizeof(tests) / sizeof(t_test_case_str); i++) {
+        test = tests +i;
+        strcpy(src, test->a);
+
+        if (assert_str_equals(str = own_strncat(src, test->b, test->n), test->expected)) {
             result.passed++;
             print_done_str(str, test);
         } else {

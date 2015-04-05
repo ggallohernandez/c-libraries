@@ -14,6 +14,7 @@ typedef struct
 {
 	char a[STR_LENGTH];
 	char b[STR_LENGTH];
+	unsigned int n;
 	char expected[STR_LENGTH];
 } t_test_case_str;
 

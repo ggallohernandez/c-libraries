@@ -17,13 +17,13 @@ int assert_str_equals(char * a, char * b)
 
 void print_done_str(char * received, t_test_case_str * test)
 {
-    printf("OK %s received, %s expected (a: %s, b: %s)\n", received, test->expected, test->a, test->b);
+    printf("OK %s received, %s expected (a: %s, b: %s, n: %d)\n", received, test->expected, test->a, test->b, test->n);
 
 }
 
 void print_failed_str(char * received, t_test_case_str * test)
 {
-    printf(">> FAILED << %s received, %s expected (a: %s, b: %s)\n", received, test->expected, test->a, test->b);
+    printf(">> FAILED << %s received, %s expected (a: %s, b: %s, n: %d)\n", received, test->expected, test->a, test->b, test->n);
 }
 
 void print_result(t_test_result * result)
