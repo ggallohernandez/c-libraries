@@ -15,6 +15,11 @@ int assert_str_equals(char * a, char * b)
     return *a == *b;
 }
 
+int assert_str_null(char * a)
+{
+    return a == NULL;
+}
+
 void print_done_str(char * received, t_test_case_str * test)
 {
     printf("OK %s received, %s expected (a: %s, b: %s, n: %d)\n", received, test->expected, test->a, test->b, test->n);

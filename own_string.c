@@ -18,10 +18,10 @@ char * own_strcat(char * dest, const char * src)
     return ps;
 }
 
-char * own_strncat(char * dest, const char * src, unsigned int n)
+char * own_strncat(char * dest, const char * src, size_t n)
 {
     char * ps = dest;
-    unsigned int i = 0;
+    size_t i = 0;
 
     while (*dest)
         dest++;
@@ -35,4 +35,12 @@ char * own_strncat(char * dest, const char * src, unsigned int n)
     *dest = '\0';
 
     return ps;
+}
+
+char * own_strchr(const char * str, int c)
+{
+    while (*str && *str != c)
+        str++;
+
+    return *str == c ? str : NULL;
 }

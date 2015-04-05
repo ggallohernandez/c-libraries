@@ -7,6 +7,8 @@
 void run_string_tests();
 void test_si_own_strcat_ejecuta_los_casos_de_uso_correctamente();
 void test_si_own_strncat_ejecuta_los_casos_de_uso_correctamente();
+void test_si_own_strchr_ejecuta_los_casos_de_uso_correctamente();
+void test_si_own_strchr_retorna_null_cuando_no_hay_coincidencia();
 
 int main()
 {
@@ -23,6 +25,8 @@ void run_string_tests()
 
     test_si_own_strcat_ejecuta_los_casos_de_uso_correctamente();
     test_si_own_strncat_ejecuta_los_casos_de_uso_correctamente();
+    test_si_own_strchr_ejecuta_los_casos_de_uso_correctamente();
+    test_si_own_strchr_retorna_null_cuando_no_hay_coincidencia();
 }
 
 void test_si_own_strcat_ejecuta_los_casos_de_uso_correctamente()
@@ -90,6 +94,78 @@ void test_si_own_strncat_ejecuta_los_casos_de_uso_correctamente()
         strcpy(src, test->a);
 
         if (assert_str_equals(str = own_strncat(src, test->b, test->n), test->expected)) {
+            result.passed++;
+            print_done_str(str, test);
+        } else {
+            result.failed++;
+            print_failed_str(str, test);
+        }
+
+        result.total++;
+    }
+
+    print_result(&result);
+}
+
+void test_si_own_strchr_ejecuta_los_casos_de_uso_correctamente()
+{
+    int i;
+    char * str;
+    char  src[STR_LENGTH];
+    t_test_case_str * test;
+
+    t_test_case_str tests[] = {
+        {.a = "string",         .n = 'r',   .expected = "ring" },
+        {.a = "This is a test", .n = 't',   .expected = "test" },
+        {.a = "This is a teSt", .n = 'S',   .expected = "St"   },
+        {.a = "This is a test", .n = '\0',  .expected = ""     },
+    };
+
+    t_test_result result;
+    result.total = result.passed = result.failed = 0;
+
+    puts(".. executing test_si_own_strchr_ejecuta_los_casos_de_uso_correctamente\n");
+
+    for (i = 0; i < sizeof(tests) / sizeof(t_test_case_str); i++) {
+        test = tests +i;
+        strcpy(src, test->a);
+
+        if (assert_str_equals(str = own_strchr(src, test->n), test->expected)) {
+            result.passed++;
+            print_done_str(str, test);
+        } else {
+            result.failed++;
+            print_failed_str(str, test);
+        }
+
+        result.total++;
+    }
+
+    print_result(&result);
+}
+
+void test_si_own_strchr_retorna_null_cuando_no_hay_coincidencia()
+{
+    int i;
+    char * str;
+    char  src[STR_LENGTH];
+    t_test_case_str * test;
+
+    t_test_case_str tests[] = {
+        {.a = "This is a test", .n = 'b',   .expected = NULL   },
+        {.a = "",               .n = 'a',   .expected = NULL   },
+    };
+
+    t_test_result result;
+    result.total = result.passed = result.failed = 0;
+
+    puts(".. executing test_si_own_strchr_retorna_null_cuando_no_hay_coincidencia\n");
+
+    for (i = 0; i < sizeof(tests) / sizeof(t_test_case_str); i++) {
+        test = tests +i;
+        strcpy(src, test->a);
+
+        if (assert_str_null(str = own_strchr(src, test->n))) {
             result.passed++;
             print_done_str(str, test);
         } else {

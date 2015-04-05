@@ -1,6 +1,8 @@
 #ifndef TEST_H_INCLUDED
 #define TEST_H_INCLUDED
 
+#include <string.h>
+
 #define STR_LENGTH 200
 
 typedef struct
@@ -20,6 +22,7 @@ typedef struct
 
 int assert_int_equals(int, int);
 int assert_str_equals(char *, char *);
+int assert_str_null(char *);
 
 void print_done_str(char * received, t_test_case_str * test);
 void print_failed_str(char * received, t_test_case_str * test);
