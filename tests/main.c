@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "../own_string.h"
+#include "../own_matrix.h"
 #include "test.h"
 
 void run_string_tests();
@@ -9,6 +10,7 @@ void test_si_own_strcat_ejecuta_los_casos_de_uso_correctamente();
 void test_si_own_strncat_ejecuta_los_casos_de_uso_correctamente();
 void test_si_own_strchr_ejecuta_los_casos_de_uso_correctamente();
 void test_si_own_strchr_retorna_null_cuando_no_hay_coincidencia();
+void test_si_sum_matrix_upper_triangle_ejecuta_los_casos_de_uso_correctamente();
 
 int main()
 {
@@ -27,6 +29,13 @@ void run_string_tests()
     test_si_own_strncat_ejecuta_los_casos_de_uso_correctamente();
     test_si_own_strchr_ejecuta_los_casos_de_uso_correctamente();
     test_si_own_strchr_retorna_null_cuando_no_hay_coincidencia();
+}
+
+void run_matrix_tests()
+{
+    puts(":: Own Matrix Library ::");
+
+    test_si_sum_matrix_upper_triangle_ejecuta_los_casos_de_uso_correctamente();
 }
 
 void test_si_own_strcat_ejecuta_los_casos_de_uso_correctamente()
@@ -171,6 +180,38 @@ void test_si_own_strchr_retorna_null_cuando_no_hay_coincidencia()
         } else {
             result.failed++;
             print_failed_str(str, test);
+        }
+
+        result.total++;
+    }
+
+    print_result(&result);
+}
+
+void test_si_sum_matrix_upper_triangle_ejecuta_los_casos_de_uso_correctamente()
+{
+    t_test_case_matrix_int * test;
+    t_test_case_matrix_int tests[] = {
+        {.m[TAM][TAM] = {{2,1,3}, {4,3,2}, {0,1,1}},       .expected = 6},
+        {.m[TAM][TAM] = {{3,2,3}, {1,0,2}, {0,0,1}},       .expected = 7},
+        {.m[TAM][TAM] = {{1,0,0}, {2,1,0}, {2,2,1}},       .expected = 0},
+        {.m[TAM][TAM] = {{1,-1,-1}, {2,1,-1}, {2,2,1}},    .expected = -3},
+    };
+
+    t_test_result result;
+    result.total = result.passed = result.failed = 0;
+
+    puts(".. executing test_si_own_strchr_retorna_null_cuando_no_hay_coincidencia\n");
+
+    for (i = 0; i < sizeof(tests) / sizeof(t_test_case_matrix_int); i++) {
+        test = tests +i;
+
+        if (assert_int_equals(test->received = sum_matrix_upper_triangle(test->m), test->expected) {
+            result.passed++;
+            print_done_matrix_int(test);
+        } else {
+            result.failed++;
+            print_failed_matrix_int(test);
         }
 
         result.total++;

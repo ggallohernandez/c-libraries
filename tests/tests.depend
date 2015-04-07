@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1428207057 source:/home/guillermo/c-libraries/own_string.c
+1428370320 source:/home/guillermo/c-libraries/own_string.c
 	"own_string.h"
 
-1428205705 /home/guillermo/c-libraries/own_string.h
+1428366982 /home/guillermo/c-libraries/own_string.h
 	<string.h>
 
 1428207499 source:/home/guillermo/c-libraries/tests/test.c
@@ -17,4 +17,9 @@
 	<string.h>
 	"../own_string.h"
 	"test.h"
+
+1428370345 source:/home/guillermo/c-libraries/own_matrix.c
+	"own_matrix.h"
+
+1428370337 /home/guillermo/c-libraries/own_matrix.h
 

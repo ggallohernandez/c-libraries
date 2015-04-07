@@ -20,12 +20,22 @@ typedef struct
 	char expected[STR_LENGTH];
 } t_test_case_str;
 
+typedef struct
+{
+	int expected;
+	int m[TAM][TAM];
+} t_test_case_matrix_int;
+
 int assert_int_equals(int, int);
 int assert_str_equals(char *, char *);
 int assert_str_null(char *);
 
 void print_done_str(char * received, t_test_case_str * test);
 void print_failed_str(char * received, t_test_case_str * test);
+
+void print_done_matrix_int(t_test_case_matrix_int * test);
+void print_failed_matrix_int(t_test_case_matrix_int * test);
+
 void print_result(t_test_result *);
 
 #endif // TEST_H_INCLUDED

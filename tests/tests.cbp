@@ -31,6 +31,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="../own_matrix.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../own_matrix.h" />
 		<Unit filename="../own_string.c">
 			<Option compilerVar="CC" />
 		</Unit>

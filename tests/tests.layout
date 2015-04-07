@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="../own_string.c" open="1" top="1" tabpos="2">
-		<Cursor position="248" topLine="0" />
+	<File name="../own_matrix.c" open="1" top="0" tabpos="2">
+		<Cursor position="68" topLine="0" />
 	</File>
-	<File name="../own_string.h" open="1" top="0" tabpos="1">
+	<File name="../own_string.c" open="1" top="0" tabpos="3">
+		<Cursor position="646" topLine="30" />
+	</File>
+	<File name="../own_string.h" open="0" top="0" tabpos="1">
 		<Cursor position="24" topLine="0" />
 	</File>
-	<File name="main.c" open="1" top="0" tabpos="3">
-		<Cursor position="56" topLine="0" />
+	<File name="main.c" open="0" top="0" tabpos="3">
+		<Cursor position="5929" topLine="186" />
 	</File>
 	<File name="test.c" open="1" top="0" tabpos="5">
-		<Cursor position="278" topLine="3" />
+		<Cursor position="930" topLine="34" />
 	</File>
-	<File name="test.h" open="1" top="0" tabpos="4">
-		<Cursor position="348" topLine="0" />
+	<File name="test.h" open="1" top="1" tabpos="4">
+		<Cursor position="335" topLine="16" />
 	</File>
 </CodeBlocks_layout_file>
